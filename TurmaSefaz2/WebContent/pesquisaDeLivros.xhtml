@@ -1,0 +1,62 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+
+<h:body>
+	<h:form>
+		<p:dialog header="Buscar livro" modal="true" visible="true">
+			<p:panelGrid columns="2">
+				<p:outputLabel value="Pesquisa: " />
+				<p:inputText value="#{LivroBean.txtNome}" />
+				<p:outputLabel value="Autor: " />
+				<p:inputText value="#{LivroBean.txtAutor}" />
+				<p:commandButton value="Sair/salvar" update="@form" actio ="#{LivroBean.entrar}"/>
+
+				<p:commandButton value="Criação de livro"
+					onclick="PF('Criar livro').show();" />
+					<p:commandButton value="Alterar livro"
+					onclick="PF('alterar livro').show();" />
+					
+</p:panelGrid>
+</p:dialog>					
+					
+					
+			<!-- Alterar Livro -->		
+			<p:dialog header="Alterar" modal="true" visible="false"
+			widgetVar="Alterar livro">
+			<p:panelGrid columns="2">
+				<p:outputLabel value="Nome: " />
+				<p:inputText value="#{LivroBean.livro.nome}" />
+				<p:outputLabel value="ID: " />
+				<p:inputText value="#{LivroBean.livro.id}" />
+				<p:outputLabel value="Autor: " />
+				<p:inputText value="#{LivroBean.livro.autor}" />
+				<p:commandButton value="Alterar" update="@form"
+					actionListener="#{LivroBean.alterarLivro}" />
+	</p:panelGrid>
+	</p:dialog>				
+				
+
+
+		<!-- Criar Livro -->
+		<p:dialog header="Criar" modal="true" visible="false"
+			widgetVar="Criar livro">
+			<p:panelGrid columns="2">
+				<p:outputLabel value="Nome: " />
+				<p:inputText value="#{LivroBean.livro.nome}" />
+				<p:outputLabel value="ID: " />
+				<p:inputText value="#{LivroBean.livro.id}" />
+				<p:outputLabel value="Autor: " />
+				<p:inputText value="#{LivroBean.livro.autor}" />
+				<p:commandButton value="Criar" update="@form"
+					actionListener="#{LivroBean.criarLivro}" />
+
+			</p:panelGrid>
+		</p:dialog>
+	</h:form>
+</h:body>
+</html>

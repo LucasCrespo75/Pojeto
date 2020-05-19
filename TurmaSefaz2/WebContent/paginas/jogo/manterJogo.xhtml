@@ -1,0 +1,40 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/templatePrincipal.xhtml">
+	<ui:define name="cabecalho">
+		<h2 align="center">Manter Jogo</h2>
+	</ui:define>
+
+	<ui:define name="conteudo">
+
+		<p:panelGrid columns="2">
+			<p:outputLabel value="Nome: " />
+			<p:inputText value="#{JogoBean.jogo.nome}"/>
+			<p:outputLabel value="Genero: " />
+			<p:inputText value="#{JogoBean.jogo.genero}"/>
+			<p:outputLabel value="Plataforma: " />
+			<p:selectOneMenu value="#{JogoBean.jogo.plataforma.nome}">
+				<f:selectItem itemLabel="Selecione uma ..." itemValue="" />
+				<f:selectItems value="#{JogoBean.listaPlataformas}" var="plataforma"
+					itemLabel="#{plataforma.nome}" itemValue="#{plataforma.nome}" />
+			</p:selectOneMenu>
+			<p:commandButton value="Salvar" update="@form" 
+				actionListener="#{JogoBean.salvar}" />
+		</p:panelGrid>
+
+	</ui:define>
+
+</ui:composition>
+
+
+
+
+
+
+
+
+</html>

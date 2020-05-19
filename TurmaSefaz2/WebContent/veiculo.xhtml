@@ -1,0 +1,39 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+
+<h:body>
+	<h:form>
+	<p:growl life="4000"/>
+		<p:dialog header="Peça" modal="true" visible="true">
+			<p:panelGrid columns="2">
+				<p:outputLabel value="Nome: " />
+				<p:inputText value="#{PecaBean.peca.nome}" />
+				<p:outputLabel value="Marca: " />
+				<p:inputText value="#{PecaBean.peca.marca_peca}" />
+				<p:outputLabel value="Ano:"/>
+				<p:inputText value="#{PecaBean.peca.ano}" />
+				<p:outputLabel value=" Modelo do veiculo... " />
+				<p:selectOneMenu value="#{PecaBean.peca.veiculo.modelo}">
+			    	<f:selectItem itemLabel="Selecionar ..." itemValue="" />
+				    <f:selectItems value="#{PecaBean.listaVeiculos}" var="veiculo"
+					itemLabel="#{veiculo.modelo}" itemValue="#{veiculo.modelo}" />
+					</p:selectOneMenu>
+						<p:commandButton value="Cadastrar geral" update="@form" 
+						actionListener="#{PecaBean.cadastrar}" />
+	                    <p:commandButton value="Sair" update="@form" 
+						actionListener="#{PecaBean.Sair}"/>
+					
+					</p:panelGrid>
+						<p:messages id="messages" showDetail="true" closable="true">
+			<p:autoUpdate />
+					</p:messages>
+					</p:dialog>
+					
+	</h:form>
+</h:body>
+</html>
