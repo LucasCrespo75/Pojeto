@@ -6,10 +6,8 @@ import java.sql.SQLException;
 
 /**
  * 
- * @author Cleiton
- *
- *	A classe JPAUtil tem a funcionalidade de disponibilizar as EntityManager(conexıes com o banco de dados)
- *TambÈm È uma classe sington, sÛ vai existir uma instancia dessa classe no projeto todo 
+ *	A classe JPAUtil tem a funcionalidade de disponibilizar as EntityManager(conex√µes com o banco de dados)
+ *Tamb√©m √© uma classe sington, s√≥ vai existir uma instancia dessa classe no projeto todo 
  *
  */
 
@@ -17,7 +15,7 @@ public class JpaUtil {
 	
 
 	
-	public static Connection getConexao() throws SQLException { //SQLExeptiuon, È um tratamento de erro, se ele retornar, È porq cagou a conexao com o banco 
+	public static Connection getConexao() throws SQLException { //SQLExeptiuon, √© um tratamento de erro, se ele retornar, √© porq cagou a conexao com o banco 
 		
 		Connection conexao = null;
 
